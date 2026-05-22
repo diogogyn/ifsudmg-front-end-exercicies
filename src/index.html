@@ -1,0 +1,74 @@
+<!-- Este é um projeto Angular standalone. Para executá-lo, siga as instruções no final do arquivo. -->
+<!-- index.html (ponto de entrada da aplicação) -->
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>TCC - Microsserviços | Apresentação</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap 5 + Icons + CSS global -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    /* Smooth scroll para navegação por âncoras */
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: #f8f9fc;
+      font-family: 'Segoe UI', system-ui, -apple-system, 'Roboto', sans-serif;
+    }
+    .navbar-brand {
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+    .btn-outline-custom {
+      border-radius: 30px;
+    }
+    .card-hover {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 1rem 2rem rgba(0,0,0,0.1) !important;
+    }
+    .filter-active {
+      background-color: #0d6efd;
+      color: white;
+      border-color: #0d6efd;
+    }
+    .hero-section {
+      background: linear-gradient(135deg, #f0f4ff 0%, #e9ecef 100%);
+      border-radius: 0 0 2rem 2rem;
+      padding: 3rem 0;
+    }
+    footer a {
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    footer a:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+    .badge-tech {
+      background-color: #e9ecef;
+      color: #2c3e50;
+      font-weight: 500;
+    }
+    /* imagem ilustrativa responsiva */
+    .diagram-svg {
+      max-width: 100%;
+      height: auto;
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+  </style>
+</head>
+<body>
+  <app-root></app-root>
+  <!-- Bootstrap JS Bundle com Popper (necessário para navbar toggler) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+/* src/styles.css (estilos globais) - importações Bootstrap já via index, mas garantia de override */
+/* Você pode adicionar estilos globais adicionais aqui */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f8fafc;
+}
+.text-white-70 {
+  color: rgba(255, 255, 255, 0.7);
+}

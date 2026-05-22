@@ -1,0 +1,47 @@
+/* src/app/app.component.css - estilos adicionais específicos do componente */
+.btn-outline-primary.filter-active {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  color: white;
+  box-shadow: 0 4px 8px rgba(13,110,253,0.2);
+}
+
+.btn-outline-primary {
+  transition: all 0.2s ease-in-out;
+  font-weight: 500;
+}
+
+.btn-outline-primary:hover:not(.filter-active) {
+  background-color: #e9ecef;
+  border-color: #0d6efd;
+  color: #0d6efd;
+  transform: translateY(-2px);
+}
+
+.navbar .nav-link {
+  font-size: 1rem;
+  transition: color 0.2s, border-bottom 0.2s;
+}
+
+.navbar .nav-link:hover {
+  color: #0b5ed7 !important;
+  border-bottom: 2px solid #0b5ed7;
+  margin-bottom: -2px;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    text-align: center;
+  }
+  .diagram-svg {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .display-5 {
+    font-size: 2rem;
+  }
+}
+
+.card {
+  transition: all 0.25s;
+}

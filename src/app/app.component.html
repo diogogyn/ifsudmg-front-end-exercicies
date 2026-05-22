@@ -1,0 +1,181 @@
+<!-- src/app/app.component.html -->
+<main>
+  <!-- NAVBAR com Bootstrap -->
+  <nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-primary" href="#">
+        <i class="bi bi-boxes me-2"></i>Tecnologias de Front-end | IF Suldeste de MG
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTCC" aria-controls="navbarTCC" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTCC">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
+          <li class="nav-item">
+            <a class="nav-link fw-semibold" href="#sobre" (click)="scrollToSection('sobre'); $event.preventDefault()">
+              <i class="bi bi-info-circle me-1"></i>Sobre o Projeto
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold" href="#cards" (click)="scrollToSection('cards'); $event.preventDefault()">
+              <i class="bi bi-grid-3x3-gap-fill me-1"></i>Funcionalidades
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold" href="#contato" (click)="scrollToSection('contato'); $event.preventDefault()">
+              <i class="bi bi-envelope-paper me-1"></i>Contato
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SEÇÃO DE APRESENTAÇÃO: título, subtítulo, descrição, imagem ilustrativa -->
+  <section id="sobre" class="hero-section py-5">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7">
+          <h1 class="display-5 fw-bold text-primary">Arquitetura de Microsserviços</h1>
+          <p class="lead fs-4 text-secondary">Migração de Sistema Monolítico para uma Aplicação Descentralizada</p>
+          <p class="mt-4 fs-6 text-dark-emphasis">
+            O Trabalho de Conclusão de Curso pretende aplicar conceitos de engenharia de software moderna para: 
+            a partir de um repositório monolítico público(Aplicacão Web), realizar a <strong>segregação em microsserviços</strong> 
+            utilizando <strong>Java 21, Spring Boot, Angular e PostgreSQL</strong>. Serãk implementadas práticas de 
+            CI/CD, testes unitários, de integração e2e, além de ferramentas de qualidade de código (SonarCloud). 
+            O resultado é uma arquitetura escalável, resiliente e preparada para evolução contínua.
+          </p>
+          <div class="mt-4">
+            <span class="badge bg-primary me-2 p-2">Java 21+</span>
+            <span class="badge bg-danger me-2 p-2">Angular 19</span>
+            <span class="badge bg-success me-2 p-2">Spring Boot</span>
+            <span class="badge bg-info text-dark p-2">PostgreSQL</span>
+          </div>
+        </div>
+        <div class="col-lg-5 text-center">
+          <!-- Imagem ilustrativa (diagrama SVG monolito -> microsserviços) -->
+          <div class="diagram-svg p-2 bg-white rounded-4 shadow-sm">
+            <svg width="100%" height="auto" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+              <rect x="20" y="80" width="100" height="70" rx="12" fill="#4A6FA5" stroke="#2C3E66" stroke-width="2" />
+              <text x="70" y="118" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Monólito</text>
+              <text x="70" y="136" text-anchor="middle" fill="#E0E7FF" font-size="9">Legado</text>
+              <path d="M130 115 L180 115" stroke="#DC3545" stroke-width="3" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+              <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#DC3545"/></marker></defs>
+              <rect x="190" y="40" width="70" height="55" rx="10" fill="#28A745" stroke="#1E7B34" stroke-width="1.5"/>
+              <text x="225" y="68" text-anchor="middle" fill="white" font-size="9">Serviço A</text>
+              <rect x="280" y="40" width="70" height="55" rx="10" fill="#28A745" stroke="#1E7B34" stroke-width="1.5"/>
+              <text x="315" y="68" text-anchor="middle" fill="white" font-size="9">Serviço B</text>
+              <rect x="190" y="130" width="70" height="55" rx="10" fill="#28A745" stroke="#1E7B34" stroke-width="1.5"/>
+              <text x="225" y="158" text-anchor="middle" fill="white" font-size="9">Serviço C</text>
+              <rect x="280" y="130" width="70" height="55" rx="10" fill="#28A745" stroke="#1E7B34" stroke-width="1.5"/>
+              <text x="315" y="158" text-anchor="middle" fill="white" font-size="9">API Gateway</text>
+              <text x="250" y="210" text-anchor="middle" fill="#2C3E66" font-size="10" font-weight="bold">Microsserviços + CI/CD</text>
+            </svg>
+            <p class="small text-muted mt-2 mb-0">Arquitetura alvo: descentralizada e escalável</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO DE CARDS + FILTRO EM TYPESCRIPT (backend/frontend) -->
+  <section id="cards" class="container my-5 py-3">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Diferenciais do Projeto</h2>
+      <p class="lead text-secondary">Cards interativos com filtro inteligente (Backend / Frontend)</p>
+      <div class="btn-group mt-3 shadow-sm" role="group" aria-label="Filtro de cards">
+        <button type="button" class="btn btn-outline-primary rounded-start-3 px-4" 
+                [class.filter-active]="activeFilter === 'todos'"
+                (click)="filterCards('todos')">
+          <i class="bi bi-table"></i> Todos
+        </button>
+        <button type="button" class="btn btn-outline-primary px-4" 
+                [class.filter-active]="activeFilter === 'backend'"
+                (click)="filterCards('backend')">
+          <i class="bi bi-server"></i> Backend
+        </button>
+        <button type="button" class="btn btn-outline-primary rounded-end-3 px-4" 
+                [class.filter-active]="activeFilter === 'frontend'"
+                (click)="filterCards('frontend')">
+          <i class="bi bi-display"></i> Frontend
+        </button>
+      </div>
+      <p class="text-muted mt-3 small">
+        <i class="bi bi-funnel-fill"></i> Exibindo {{ filteredCards.length }} de {{ allCards.length }} cards 
+        (filtro por área técnica)
+      </p>
+    </div>
+
+    <!-- Grid responsivo do Bootstrap: 1 coluna em mobile, 2 em tablet, 3 em desktop -->
+    <div class="row g-4">
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let card of filteredCards">
+        <div class="card h-100 shadow-sm border-0 rounded-4 card-hover">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-center mb-3">
+              <i [class]="card.icon + ' fs-1 text-primary me-3'"></i>
+              <h5 class="card-title fw-bold mb-0">{{ card.title }}</h5>
+            </div>
+            <p class="card-text text-secondary">{{ card.description }}</p>
+            <div class="mt-3">
+              <span class="badge bg-light text-dark me-1" *ngFor="let tag of card.tags">
+                <i class="bi bi-tag-fill me-1 small"></i>{{ tag | titlecase }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- mensagem caso nenhum card atenda ao filtro -->
+      <div *ngIf="filteredCards.length === 0" class="col-12 text-center py-5">
+        <div class="alert alert-info shadow-sm rounded-4">
+          <i class="bi bi-info-circle fs-3"></i>
+          <h5 class="mt-2">Nenhum card encontrado para este filtro</h5>
+          <p>Tente a opção "Todos" ou "Backend"/"Frontend".</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé (footer) 100% largura, informações de contato e redes -->
+  <footer id="contato" class="bg-dark text-white pt-5 pb-4 mt-5">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-md-5">
+          <h5 class="fw-bold text-white-50 mb-3"><i class="bi bi-mortarboard-fill me-2"></i>Tecnologias de Front-end</h5>
+          <p class="text-white-70 small">
+            Projeto será desenvolvido como requisito parcial para conclusão do curso de Sistemas de Informação. 
+            Demonstrará aplicação de microsserviços, CI/CD e qualidade de software.
+          </p>
+        </div>
+        <div class="col-md-4">
+          <h5 class="fw-bold text-white-50 mb-3">Contato & Acadêmico</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-person-circle me-2"></i> {{ studentName }}</li>
+            <li class="mb-2"><i class="bi bi-calendar-week me-2"></i> {{ semester }} - {{ course }}</li>
+            <li class="mb-2"><i class="bi bi-envelope me-2"></i> <a href="mailto:{{email}}" class="text-white-50 text-decoration-none">{{ email }}</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5 class="fw-bold text-white-50 mb-3">Redes Profissionais</h5>
+          <div class="d-flex gap-3">
+            <a href="{{githubUrl}}" target="_blank" class="text-white-50 fs-4" aria-label="GitHub">
+              <i class="bi bi-github"></i>
+            </a>
+            <a href="{{linkedinUrl}}" target="_blank" class="text-white-50 fs-4" aria-label="LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="#" class="text-white-50 fs-4" aria-label="Portfólio">
+              <i class="bi bi-briefcase"></i>
+            </a>
+          </div>
+          <div class="mt-3 small text-white-50">
+            <i class="bi bi-code-slash"></i> Stack: Angular 19 + Spring Boot
+          </div>
+        </div>
+      </div>
+      <hr class="my-4 bg-secondary">
+      <div class="text-center text-white-50 small">
+        &copy; 2026 - {{ studentName }} | Projeto de TCC - Arquitetura de Microsserviços | Todos os direitos reservados.
+      </div>
+    </div>
+  </footer>
+</main>
